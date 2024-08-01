@@ -3,15 +3,14 @@ package main
 import "fmt"
 
 func HashCode(dec string) string {
-	result := ""
+	var result string
 	size := len(dec)
-
-	for _,c := range dec {
-		hashedchar := (int(c) + size)%127
-		if hashedchar < 33 {
-			hashedchar += 33
+	for _, c := range dec {
+		hashed := (int(c) + size) % 127
+		if hashed < 33 {
+			hashed += 33
 		}
-		result += string(rune(hashedchar))
+		result += string(rune(hashed))
 	}
 	return result
 }
